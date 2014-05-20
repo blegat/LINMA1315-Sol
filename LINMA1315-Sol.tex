@@ -1,0 +1,92 @@
+\input{packages.tex}
+
+% cfr. APE
+\newcommand{\cfrape}[2]{Voir l'exercice~#2 de l'ape~#1}
+
+\newcommand{\nosolution}
+{Cet exercice ne contient pas encore de solution.
+Vous êtes invité à nous en soumettre une à l'adresse suivante
+\begin{center}
+\url{https://github.com/blegat/LINMA1315-Sol}
+\end{center}
+ou par mail.}
+
+\title{Principes d'analyse fonctionnelle: Solution des exercices}
+\author{Benoît Legat}
+
+\begin{document}
+\maketitle
+
+Ce document comprend les solutions de \cite{willem2008principes}
+utilisé à l'UCL dans le cours LINMA1315 donné par Michel Willem.
+Certains des exercices sont résolus en séance par Alban Jago
+et nous avons déjà un correctif, leur solution est donc omise.
+
+\section{Distances}
+\begin{enumerate}
+  \item \cfrape{1}{4}.   %  1
+  \item \cfrape{1}{5}.   %  2
+  \item \cfrape{3}{1d}.  %  3
+  \item \cfrape{3}{1ab}. %  4
+  \item $w_k$ est ouvert par la proposition~2.12.
+    $w_k$ est dense car $\mathbb{Q} \subset w_k$ et $\mathbb{Q}$ est dense dans $\mathbb{R}$.
+    On peut être plus complet avec une preuve par l'absurde.
+    Si $w_k$ n'est pas dense dans $\mathbb{R}$,
+    il existe $x \in \mathbb{R}$ et $\exists r > 0$ tels que
+    $w_k \cap B(x,r) = \emptyset$.
+    Seulement, comme $\mathbb{Q}$ est dense dans $\mathbb{R}$, $B(x,r) \cap \mathbb{Q} \neq \emptyset$.
+    Comme $\mathbb{Q} \subset w_k$, c'est absurde.
+  \item \label{ex:unicompact}
+    \footnote{On remarque que comme la suite est décroissante, $\cap_{n=1}^\infty K_n$ serait en fait $\lim_{n\to\infty} K_n$
+    si on définissait une distance pour les ensembles.}
+    La difficulté de cet exercice est de faire apparaitre une suite pour pouvoir commencer à utiliser
+    le fait que les $K_n$ soient compacts et que $U$ soit ouvert.
+    Supposons par l'absurde que pour tout $n$, $K_n \setminus U \neq \emptyset$.
+    On peut alors prendre une suite $u_n$ avec $u_n \in K_n \setminus U$.
+    Comme la suite est décroissante $u_n \in K_1$ pour tout $n$.
+    Comme $K_1$ est compact, $u_n$ possède une sous-suite convergente $u_{n_k}$.
+    Soit $u \in K_1$ la limite de cette sous-suite.
+    En faisant le même raisonnement pour chaque $K_i$ avec la suite partant de $u_i$,
+    on trouve à chaque fois le même $u$ et on en conclut que $u \in K_n$ pour tout $n$
+    et donc que $u \in \cap_{n=1}^\infty K_n$.
+
+    Seulement, par la définition de $u_n$, $u_n$ appartient au complémentaire de $U$.
+    Mais par la proposition~2.11, ça siginifie que $u$ appartient également au complémentaire de $u$.
+    $u$ n'appartient donc pas à $U$ alors qu'il appartient à $\cap_{n=1}^\infty K_n$,
+    ce qui est absurde car $\cap_{n=1}^\infty K_n \subseteq U$.
+  \item Idem que pour l'exercice~\ref{ex:unicompact},
+    on prend $u_n \in K \setminus U_n$.
+    Comme $K$ est compact, $u_n$ possède une sous-suite qui converge vers $u \in U$.
+    $u_n$ appartient au complémentaire de $U_n$ et
+    par la proposition~2.11, le complémentaire de de $U_n$ est fermé donc la limite
+    de la sous-suite de $u_n$ converge hors de $U_n$.
+    Ce qui signifie que $u$ appartient à $K$ et pas à $\cup_{n=1}^\infty U_n$ ce
+    qui est absurde.
+  \item \cfrape{4}{4}.   %  8
+  \item On ne peut pas appliquer Dini car les $u_n$ ne sont pas nécessairement continues.
+    Prenons contre-exemple où
+    \[ u_n(x) =
+      \begin{cases}
+        1 & x = 0\\
+        0 & 0 < x \leq \frac{1}{n}\\
+        1 & \frac{1}{n} < x \leq 0.
+      \end{cases}
+    \]
+    On voit que $u_n$ converge simplement vers $u(x) = 1$.
+    Mais $\sup_{x \in X} d(u_n(x), u(x)) = 1$ quel que soit $n$
+    donc $u_n$ ne converge pas uniformément vers $u$.
+  \item
+    \nosolution
+  \item
+    \nosolution
+  \item
+    \nosolution
+  \item \cfrape{3}{4}.   % 13
+  \item
+    \nosolution
+\end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{biblio}
+
+\end{document}
