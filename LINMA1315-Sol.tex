@@ -1,5 +1,8 @@
 \input{packages.tex}
 
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\L}{\mathcal{L}}
+
 % cfr. APE
 \newcommand{\cfrape}[2]{Voir l'exercice~#2 de l'ape~#1}
 
@@ -83,6 +86,63 @@ et nous avons déjà un correctif, leur solution est donc omise.
     \nosolution
   \item \cfrape{3}{4}.   % 13
   \item
+    \nosolution
+\end{enumerate}
+
+\section{Intégrales}
+\begin{enumerate}
+  \item
+    \begin{enumerate}
+      \item Comme $|\cdot|$ est continu, soit la suite $x_k = k$, on a, par le lemme~3.2,
+        $\lim_{k\to\infty} |u(k)| = |\lim_{k\to\infty} u(k)|$.
+        Dès lors, si $u$ est tel que $\lim_{k\to\infty} u(k)$ existe,
+        alors $|u|$ aussi.
+      \item C'est évident car
+        $\lim_{k\to\infty} \alpha u(k) + \beta v(k) = \alpha \lim_{k\to\infty} u(k) + \beta \lim_{k\to\infty} v(k)$.
+      \item Soit $x_k = u(k)$. Si $u \geq 0$, on sait que $(x_k) \subseteq [0;\infty[$ qui est fermé.
+        Si $(x_k)$ converge, il converge donc dans $[0;\infty[$ par la proposition~2.11.
+      \item En prenant
+        \[
+          u_n(k) =
+          \begin{cases}
+            0 & k \leq n\\
+            1 & k > n,
+          \end{cases}
+        \]
+        on a bien $u \downarrow 0$ mais $\lim_{k\to\infty} u_n(k) = 1$ donc $\lim_{n\to\infty} \lim_{k\to\infty}u_n(k) = 1 \neq 0$.
+    \end{enumerate}
+  \item % 2
+    Soit $u:[0,1]\to\mathbb{R} : x \mapsto 2x$, on a
+    \[
+      \min(u,1) =
+      \begin{cases}
+        2x & x \leq 0.5\\
+        1 & x > 0.5,
+      \end{cases}
+    \]
+    qui n'est plus linéaire.
+  \item % 3
+    Soit $u$ tel que $\sum_{n=0}^\infty |u(n)| < \infty$.
+    en posant $u_k = u^+ \chi_{\{1,\ldots,n\}}$, on a $u_k \in \L$ car on a une nombre fini de valeurs non-nulles.
+    De plus, $u_k$ est croissant car $\chi_{\{1,\ldots,n\}}$ est croissant et $u^+$ est positif.
+    On a alors que $\lim_{k\to\infty} u_k = u^+ \in \L^+$.
+    Par le même raisonnement, $-u^- \in \L^+$ et donc $u = u^- + u^+ \in \L^1$.
+    Il reste à prouver que si $\sum_{n=0}^\infty |u(n)| < \infty$, alors $u \notin \L^1$.
+
+    Si $\R$ était mesurable, ça voudrait dire que $\chi_\R$ est mesurable.
+    Hors si $\chi_\R = \lim u_n$, alors il a une nombre dénombrable de valeurs non-nulle
+    ce qui est absurde car $\R$ est non-dénombrable.
+  \item % 4
+    \nosolution
+  \item % 5
+    \nosolution
+  \item % 6
+    \cfrape{10}{2}.
+  \item % 7
+    \nosolution
+  \item % 8
+    \nosolution
+  \item % 9
     \nosolution
 \end{enumerate}
 
